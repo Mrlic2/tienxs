@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorías - Admin</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><i class="bi bi-tags"></i> Categorías</a>
+          <a href="index.html" class="btn btn-outline-light ms-auto">Panel</a>
+          <a href="usuariosr.html" class="btn btn-outline-light ms-2">Usuarios</a>
+          <a href="producto.html" class="btn btn-outline-light ms-2">Productos</a>
+          <a href="pedidos.html" class="btn btn-outline-light ms-2">Pedidos</a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2>Lista de Categorías</h2>
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalCategoria"><i class="bi bi-plus-circle"></i> Agregar Categoría</button>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Categorías</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="lista"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal para agregar/editar categoria -->
+    <div class="modal fade" id="modalCategoria" tabindex="-1" aria-labelledby="modalCategoriaLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalCategoriaLabel">Agregar Categoría</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="formCategoria">
+                <input type="hidden" id="categoriaIndex">
+                <div class="mb-3">
+                    <label for="categoria" class="form-label">Nombre de la Categoría</label>
+                    <input type="text" id="categoria" class="form-control" placeholder="Nombre de la categoría" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para editar categoria -->
+    <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalEditarLabel">Editar Categoría</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <input type="text" id="editarCategoriaInput" class="form-control" placeholder="Nuevo nombre de la categoría">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="guardarCambiosBtn">Guardar Cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../js/bootstrap.bundle.js"></script>
+    <script src="../js/sweetalert2.all.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
